@@ -31,3 +31,5 @@ const bookSchema = new mongoose.Schema({
     trim: true
   }
 });
+
+module.exports = mongoose.model('Book', bookSchema);
