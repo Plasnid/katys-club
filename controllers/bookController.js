@@ -4,14 +4,19 @@ const promisify = require('es6-promisify');
 
 exports.getBooks = async (req, res) => {
   const page = req.params.page || 1;
-  const limit = 5;
+  const limit = parseInt(req.params.limit || 10);
+  const searchCategory = req.params.category || 'title';
+  const searchTerm = req.params.term || '';
+  const resultDirection = req.params.direction || 1;
+  const searchExpression = `.*${searchTerm}.*`;
   const skip = (page * limit) - limit;
   //now we query for a full list of the books
   const booksPromise = Book
-  .find()
+  .find({[`${searchCategory}`]:{'$regex': [`${searchExpression}`]}})
+  //.find()
   .skip(skip)
   .limit(limit)
-  .sort({ lastName: '1' });
+  .sort({ [`${searchCategory}`]: [`${resultDirection}`] });
 
   const countPromise = Book.count();
 
@@ -24,4 +29,5 @@ exports.getBooks = async (req, res) => {
     return;
   }
   res.json(books);
+  //res.json(searchTerm);
 }

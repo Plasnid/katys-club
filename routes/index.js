@@ -17,6 +17,9 @@ const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', userController.getUser);
 
+router.get('/books/:page/:limit/:category/:term/:direction', catchErrors(bookController.getBooks));
+router.get('/books/:page/:limit/:category/:term', catchErrors(bookController.getBooks));
+router.get('/books/:page/:limit/:category', catchErrors(bookController.getBooks));
 router.get('/books/:page', catchErrors(bookController.getBooks));
 
 
