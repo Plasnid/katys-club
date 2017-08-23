@@ -12,7 +12,7 @@ exports.getBooks = async (req, res) => {
   const skip = (page * limit) - limit;
   //now we query for a full list of the books
   const booksPromise = Book
-  .find({[`${searchCategory}`]:{'$regex': [`${searchExpression}`]}})
+  .find({[`${searchCategory}`]:{'$regex': [`${searchExpression}`], '$options' : 'i'}})
   //.find()
   .skip(skip)
   .limit(limit)
@@ -29,5 +29,5 @@ exports.getBooks = async (req, res) => {
     return;
   }
   res.json(books);
-  //res.json(searchTerm);
+  
 }
