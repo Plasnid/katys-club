@@ -10,10 +10,13 @@ what are your main aspects, make a controller and a model for each
 */
 //const groupController = require('../controllers/groupController');
 const userController = require('../controllers/userController');
-//const bookController = require('../controllers/bookController');
+const bookController = require('../controllers/bookController');
 //const meetingController = require('../controllers/meetingController');
 
 router.get('/', userController.getUser);
-router.get('/bork', userController.getUser);
+
+router.get('/books/:page', bookController.getBooks);
+
+
 
 module.exports = router;

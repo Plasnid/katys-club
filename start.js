@@ -18,6 +18,7 @@ mongoose.connection.on('error', (err) => {
 
 //import our models here
 require('./models/User');
+require('./models/Book');
 
 const app = require('./app');
 app.set('port', process.env.PORT || 7777);
