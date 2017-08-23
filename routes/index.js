@@ -13,9 +13,11 @@ const userController = require('../controllers/userController');
 const bookController = require('../controllers/bookController');
 //const meetingController = require('../controllers/meetingController');
 
+const { catchErrors } = require('../handlers/errorHandlers');
+
 router.get('/', userController.getUser);
 
-router.get('/books/:page', bookController.getBooks);
+router.get('/books/:page', catchErrors(bookController.getBooks));
 
 
 

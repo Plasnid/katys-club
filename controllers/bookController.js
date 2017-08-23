@@ -4,14 +4,14 @@ const promisify = require('es6-promisify');
 
 exports.getBooks = async (req, res) => {
   const page = req.params.page || 1;
-  const limit = 20;
+  const limit = 5;
   const skip = (page * limit) - limit;
   //now we query for a full list of the books
   const booksPromise = Book
   .find()
   .skip(skip)
   .limit(limit)
-  .sort({ title: '1' });
+  .sort({ lastName: '1' });
 
   const countPromise = Book.count();
 
