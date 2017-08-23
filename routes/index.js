@@ -14,3 +14,6 @@ const userController = require('../controllers/userController');
 //const meetingController = require('../controllers/meetingController');
 
 router.get('/', userController.getUser);
+router.get('/bork', userController.getUser);
+
+module.exports = router;

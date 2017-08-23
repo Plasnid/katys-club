@@ -19,7 +19,7 @@ exports.siteName = `Katy's Club: A Book Club Management App`;
 
 //lastly the menu
 exports.menu = [
-  { slug: '/home' title: 'Book Club Home' }
-  { slug: '/booklist' title: 'Book Titles' }
-  { slug: '/meeting' title: 'Book Club Meeting' }
+  { slug: '/home', title: 'Book Club Home' },
+  { slug: '/booklist', title: 'Book Titles' },
+  { slug: '/meeting', title: 'Book Club Meeting' }
 ];

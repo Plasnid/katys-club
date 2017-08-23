@@ -8,22 +8,15 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const bookSchema = new mongoose.Schema({
   title: {
     type: String,
-    unique: true,
-    lowercase: true,
-    trim: true,
     required: 'Please supply a book title'
   },
   firstName: {
     type: String,
-    unique: true,
-    trim: true,
-    required: 'Please supply a first name'
+    trim: true
   },
   lastName: {
     type: String,
-    unique: true,
-    trim: true,
-    required: 'Please supply a last name'
+    trim: true
   },
   genre: {
     type: String,
